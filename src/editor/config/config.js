@@ -317,5 +317,25 @@ export default {
   keepUnusedStyles: 0,
 
   // TODO
-  multiFrames: 0
+  multiFrames: 0,
+
+  openImportOpt: {
+    // Modal import title
+    modalImportTitle: 'Import',
+
+    // Modal import button text
+    modalImportButton: 'Import',
+
+    // Import description inside import modal
+    modalImportLabel: '',
+
+    // Default content to setup on import model open.
+    // Could also be a function with a dynamic content return (must be a string)
+    // eg. modalImportContent: editor => editor.getHtml(),
+    modalImportContent: '',
+
+    // Code viewer (eg. CodeMirror) options
+    importViewerOptions: {}
+  },
+  confirmClearCanvas: 'Are you sure to clean the canvas?'
 };

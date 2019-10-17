@@ -1,6 +1,9 @@
 export default {
   run(ed) {
-    ed.DomComponents.clear();
-    ed.CssComposer.clear();
+    var config = ed.getConfig();
+    if (confirm(config.confirmClearCanvas)) {
+      ed.DomComponents.clear();
+      ed.CssComposer.clear();
+    }
   }
 };

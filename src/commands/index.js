@@ -44,7 +44,7 @@ export default () => {
     ['copy', 'CopyComponent'],
     ['paste', 'PasteComponent'],
     ['canvas-move', 'CanvasMove'],
-    ['canvas-clear', 'CanvasClear'],
+    ['canvas-clear', 'CanvasClear', 'canvas-clear'],
     ['open-code', 'ExportTemplate', 'export-template'],
     ['open-layers', 'OpenLayers', 'open-layers'],
     ['open-styles', 'OpenStyleManager', 'open-sm'],
@@ -61,7 +61,8 @@ export default () => {
     ['component-exit', 'ComponentExit', 'select-parent'],
     ['component-delete', 'ComponentDelete'],
     ['component-style-clear', 'ComponentStyleClear'],
-    ['component-drag', 'ComponentDrag']
+    ['component-drag', 'ComponentDrag'],
+    ['open-import', 'OpenImport', 'open-import']
   ];
 
   // Need it here as it would be used below
