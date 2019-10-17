@@ -700,63 +700,80 @@ export default () => ({
           );
           break;
         case 'text-shadow':
-          obj.properties = this.build([
-            'text-shadow-h',
-            'text-shadow-v',
-            'text-shadow-blur',
-            'text-shadow-color'
-          ]);
+          obj.properties = this.build(
+            [
+              'text-shadow-h',
+              'text-shadow-v',
+              'text-shadow-blur',
+              'text-shadow-color'
+            ],
+            format
+          );
           break;
         case 'border':
-          obj.properties = this.build([
-            'border-width',
-            'border-style',
-            'border-color'
-          ]);
+          obj.properties = this.build(
+            ['border-width', 'border-style', 'border-color'],
+            format
+          );
           break;
         case 'border-radius':
-          obj.properties = this.build([
-            'border-top-left-radius',
-            'border-top-right-radius',
-            'border-bottom-right-radius',
-            'border-bottom-left-radius'
-          ]);
+          obj.properties = this.build(
+            [
+              'border-top-left-radius',
+              'border-top-right-radius',
+              'border-bottom-left-radius',
+              'border-bottom-right-radius'
+            ],
+            format
+          );
           break;
         case 'box-shadow':
-          obj.properties = this.build([
-            'box-shadow-h',
-            'box-shadow-v',
-            'box-shadow-blur',
-            'box-shadow-spread',
-            'box-shadow-color',
-            'box-shadow-type'
-          ]);
+          obj.properties = this.build(
+            [
+              'box-shadow-h',
+              'box-shadow-v',
+              'box-shadow-blur',
+              'box-shadow-spread',
+              'box-shadow-color',
+              'box-shadow-type'
+            ],
+            format
+          );
           break;
         case 'background':
-          obj.properties = this.build([
-            'background-image',
-            'background-repeat',
-            'background-position',
-            'background-attachment',
-            'background-size'
-          ]);
+          obj.properties = this.build(
+            [
+              'background-image',
+              'background-repeat',
+              'background-position',
+              'background-attachment',
+              'background-size'
+            ],
+            format
+          );
           break;
         case 'transition':
-          obj.properties = this.build([
-            'transition-property',
-            'transition-duration',
-            'transition-timing-function'
-          ]);
+          obj.properties = this.build(
+            [
+              'transition-property',
+              'transition-duration',
+              'transition-timing-function'
+            ],
+            format
+          );
           break;
         case 'transform':
-          obj.properties = this.build([
-            'transform-rotate-x',
-            'transform-rotate-y',
-            'transform-rotate-z',
-            'transform-scale-x',
-            'transform-scale-y',
-            'transform-scale-z'
-          ]);
+          obj.properties = this.build(
+            [
+              'transform-rotate-x',
+              'transform-rotate-y',
+              'transform-rotate-z',
+              'transform-scale-x',
+              'transform-scale-y',
+              'transform-scale-z'
+            ],
+            format
+          );
           break;
       }
 
@@ -817,6 +834,113 @@ export default () => ({
             break;
           case 'padding':
             name = '内边距';
+            break;
+
+          case 'font-family':
+            name = '字体';
+            break;
+          case 'font-size':
+            name = '字号';
+            break;
+          case 'font-weight':
+            name = '粗细';
+            break;
+          case 'letter-spacing':
+            name = '字符间距';
+            break;
+          case 'color':
+            name = '颜色';
+            break;
+          case 'line-height':
+            name = '行高';
+            break;
+          case 'text-shadow':
+            name = '文本阴影';
+            break;
+          case 'text-shadow-h':
+            name = '水平';
+            break;
+          case 'text-shadow-v':
+            name = '垂直';
+            break;
+          case 'text-shadow-blur':
+            name = '位置';
+            break;
+          case 'text-shadow-color':
+            name = '颜色';
+            break;
+          case 'border-radius-c':
+            name = '圆角边框大小';
+            break;
+          case 'background-color':
+            name = '背景色';
+            break;
+          case 'border-radius':
+            name = '圆角边框';
+            break;
+          case 'border-top-left-radius':
+            name = '左上角';
+            break;
+          case 'border-top-right-radius':
+            name = '右上角';
+            break;
+          case 'border-bottom-left-radius':
+            name = '左下角';
+            break;
+          case 'border-bottom-right-radius':
+            name = '右下角';
+            break;
+          case 'border':
+            name = '边框';
+            break;
+          case 'border-width':
+            name = '宽度';
+            break;
+          case 'border-style':
+            name = '样式';
+            break;
+          case 'border-color':
+            name = '颜色';
+            break;
+
+          case 'box-shadow':
+            name = '盒阴影';
+            break;
+          case 'box-shadow-h':
+            name = '水平';
+            break;
+          case 'box-shadow-v':
+            name = '垂直';
+            break;
+          case 'box-shadow-blur':
+            name = '距离';
+            break;
+          case 'box-shadow-spread':
+            name = '尺寸';
+            break;
+          case 'box-shadow-color':
+            name = '颜色';
+            break;
+          case 'box-shadow-type':
+            name = '类型';
+            break;
+          case 'background':
+            name = '背景';
+            break;
+          case 'background-image':
+            name = '图片';
+            break;
+          case 'background-repeat':
+            name = '重复';
+            break;
+          case 'background-position':
+            name = '开始位置';
+            break;
+          case 'background-attachment':
+            name = 'attachment';
+            break;
+          case 'background-size':
+            name = '尺寸';
             break;
         }
         obj.name = name;

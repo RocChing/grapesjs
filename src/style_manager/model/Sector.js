@@ -89,8 +89,6 @@ export default Backbone.Model.extend({
 
     if (!this.propFactory) this.propFactory = new PropertyFactory();
 
-    console.log(format);
-
     r = this.propFactory.build(buildP, format);
 
     return r;
