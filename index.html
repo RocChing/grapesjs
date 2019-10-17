@@ -197,13 +197,15 @@
     var styleManager = {
       textNoElement: '选择元素查看样式',
       sectors: [{
+        formatPropertyName: true,
         name: '基础',
-        open: false,
-        buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+        open: true,
+        buildProps: ['float', 'display', 'position', 'top', 'bottom', 'left', 'right']
       }, {
+        formatPropertyName: true,
         name: '宽高和边距',
         open: false,
-        buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+        buildProps: ['width', 'height', 'max-width', 'min-width', 'max-height', 'min-height', 'margin', 'padding'],
       }, {
         name: '字体和颜色',
         open: false,

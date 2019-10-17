@@ -10,12 +10,13 @@ export default Backbone.Model.extend({
     open: true,
     buildProps: '',
     extendBuilded: 1,
+    formatPropertyName: false,
     properties: []
   },
 
   initialize(opts) {
     const o = opts || {};
-    const builded = this.buildProperties(o.buildProps);
+    const builded = this.buildProperties(o.buildProps, o.formatPropertyName);
     const name = this.get('name') || '';
     let props = [];
     !this.get('id') && this.set('id', name.replace(/ /g, '_').toLowerCase());
@@ -80,7 +81,7 @@ export default Backbone.Model.extend({
    * @return {Array<Object>}
    * @private
    */
-  buildProperties(props) {
+  buildProperties(props, format) {
     var r;
     var buildP = props || [];
 
@@ -88,7 +89,9 @@ export default Backbone.Model.extend({
 
     if (!this.propFactory) this.propFactory = new PropertyFactory();
 
-    r = this.propFactory.build(buildP);
+    console.log(format);
+
+    r = this.propFactory.build(buildP, format);
 
     return r;
   }

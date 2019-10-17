@@ -4,7 +4,7 @@ export default () => ({
    * @param  {Array<string>|string} props Array of properties name
    * @return {Array<Object>}
    */
-  build(props) {
+  build(props, format) {
     var objs = [];
     var dftFixedValues = ['initial', 'inherit'];
 
@@ -688,20 +688,16 @@ export default () => ({
       // Properties
       switch (prop) {
         case 'margin':
-          obj.properties = this.build([
-            'margin-top',
-            'margin-right',
-            'margin-bottom',
-            'margin-left'
-          ]);
+          obj.properties = this.build(
+            ['margin-top', 'margin-right', 'margin-bottom', 'margin-left'],
+            format
+          );
           break;
         case 'padding':
-          obj.properties = this.build([
-            'padding-top',
-            'padding-right',
-            'padding-bottom',
-            'padding-left'
-          ]);
+          obj.properties = this.build(
+            ['padding-top', 'padding-right', 'padding-bottom', 'padding-left'],
+            format
+          );
           break;
         case 'text-shadow':
           obj.properties = this.build([
@@ -762,6 +758,68 @@ export default () => ({
             'transform-scale-z'
           ]);
           break;
+      }
+
+      //add by roc
+      if (format) {
+        let name = '';
+        switch (prop) {
+          case 'float':
+            name = '浮动';
+            break;
+          case 'display':
+            name = '显示';
+            break;
+          case 'position':
+            name = '位置';
+            break;
+          case 'top':
+          case 'margin-top':
+          case 'padding-top':
+            name = '上';
+            break;
+          case 'right':
+          case 'margin-right':
+          case 'padding-right':
+            name = '右';
+            break;
+          case 'left':
+          case 'margin-left':
+          case 'padding-left':
+            name = '左';
+            break;
+          case 'bottom':
+          case 'margin-bottom':
+          case 'padding-bottom':
+            name = '下';
+            break;
+
+          case 'width':
+            name = '宽度';
+            break;
+          case 'height':
+            name = '高度';
+            break;
+          case 'max-width':
+            name = '最大宽度';
+            break;
+          case 'min-width':
+            name = '最小宽度';
+            break;
+          case 'max-height':
+            name = '最大高度';
+            break;
+          case 'min-height':
+            name = '最小高度';
+            break;
+          case 'margin':
+            name = '外边距';
+            break;
+          case 'padding':
+            name = '内边距';
+            break;
+        }
+        obj.name = name;
       }
 
       objs.push(obj);
