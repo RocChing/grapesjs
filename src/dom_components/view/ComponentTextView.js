@@ -45,7 +45,6 @@ export default ComponentView.extend({
       }
     }
 
-    this.rteEnabled = 1;
     this.toggleEvents(1);
   },
 
@@ -67,7 +66,6 @@ export default ComponentView.extend({
       this.syncContent();
     }
 
-    this.rteEnabled = 0;
     this.toggleEvents();
   },
 
@@ -77,12 +75,15 @@ export default ComponentView.extend({
    */
   getContent() {
     const { rte } = this;
+    const { activeRte } = rte || {};
     let content = '';
-    if(rte.activeRte && typeof rte.activeRte.getContent === 'function') {
-      content = rte.activeRte.getContent();
+
+    if (activeRte && typeof activeRte.getContent === 'function') {
+      content = activeRte.getContent();
     } else {
       content = this.getChildrenContainer().innerHTML;
     }
+
     return content;
   },
 
@@ -156,14 +157,17 @@ export default ComponentView.extend({
    * @param {Boolean} enable
    */
   toggleEvents(enable) {
-    var method = enable ? 'on' : 'off';
+    const { em } = this;
     const mixins = { on, off };
-    this.em.setEditing(enable);
+    const method = enable ? 'on' : 'off';
+    em.setEditing(enable);
+    this.rteEnabled = !!enable;
 
     // The ownerDocument is from the frame
     var elDocs = [this.el.ownerDocument, document];
     mixins.off(elDocs, 'mousedown', this.disableEditing);
     mixins[method](elDocs, 'mousedown', this.disableEditing);
+    em[method]('toolbar:run:before', this.disableEditing);
 
     // Avoid closing edit mode on component click
     this.$el.off('mousedown', this.disablePropagation);
